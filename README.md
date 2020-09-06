@@ -1,4 +1,2 @@
-# Algoritmos-MultiObjetivo
-Implementación de Algoritmos de Búsqueda MultiObjetivo
-Este proyecto considera la implementación de Algoritmos de Búsqueda MultiObjetivo.
-
+# algoritmos_multi-objetivo
+Implementación de Algoritmos de Búsqueda Multi-objetivo
