@@ -1,4 +1,2 @@
-# algoritmos_multi-objetivo
+## algoritmos_multi-objetivo
 Implementación de Algoritmos de Búsqueda Multi-objetivo
-Cambio
-Otro cambio
