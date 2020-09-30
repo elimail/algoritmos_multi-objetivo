@@ -7,7 +7,6 @@
 #include "Construction.h"
 #include "Movimiento.h"
 
-
 using namespace std;
 
 int main(int argc, char **argv) {
@@ -17,6 +16,8 @@ int main(int argc, char **argv) {
   
   //Creo la semilla
   int seed = atoi(argv[2]);
+
+  int replicas = atoi(argv[3]);
 
   //Inicio generador de números aleatorios
   srand(seed);
@@ -47,11 +48,20 @@ int main(int argc, char **argv) {
   //Llamar a un Movimiento
   Movimiento *mov = new Movimiento();
 
-  while (mov->modificarSolucion(slt) == false){
-    mov->modificarSolucion(slt);
+  for (int i=0;i<replicas;i++){
+
+    cout << "Replica: " << i+1 << endl;
+
+    while (mov->modificarSolucion(slt) == false){
+      mov->modificarSolucion(slt);
+    }
+    c->imprimirSolucion(slt);
+    cout << endl;
   }
-  
-  c->imprimirSolucion(slt);
 
   return 0;
 }
+
+
+
+ 
