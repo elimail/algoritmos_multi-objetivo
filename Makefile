@@ -15,13 +15,13 @@ MOPK: $(OBJS)
 
 #Para que me lea el archivo de las instancias 
 exe:
-	./MOPK Instancias/KP_p-3_n-50_ins-1.txt 4
+	./MOPK Instancias/KP_p-3_n-50_ins-1.txt 4 1000
 
 exe4:
-	./MOPK Instancias/KP_p-4_n-10_ins-1.txt 10
+	./MOPK Instancias/KP_p-4_n-10_ins-1.txt 10 1000
 
 exe5:
-	./MOPK Instancias/KP_p-5_n-10_ins-1.txt 2
+	./MOPK Instancias/KP_p-5_n-10_ins-1.txt 2 1000
 
 clean: 
 	rm -rf *.o MOPK
