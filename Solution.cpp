@@ -91,4 +91,32 @@ void Solution::imprimeResultado(void){
 
   //Que imprima el peso total 
   cout << "Peso total ocupado: " << this->pesoTotal <<endl;
+
+  //Que imprima la función de evaluación
+  cout << "Función de Evaluación: " << this->evaluarSolucion() << endl;
+}
+
+
+void Solution::copiarSolucion(Solution *slt){
+
+  //Establezco el peso total del peso total que tenía slt
+  this->setpesoTotal(slt->getpesoTotal());
+
+  //Para fo:
+  for (int i = 0; i < this->fo.size(); i++ ){
+    this->modificarfo(i,slt->getfo(i));
+  }
+
+  //Para repS:
+  for (int i = 0; i < this->repS.size(); i++ ){
+    this->modificarObj(i,slt->getrepS(i));
+  }
+
+}
+
+
+int Solution::evaluarSolucion(){
+
+  return this->getfo(0);
+
 }

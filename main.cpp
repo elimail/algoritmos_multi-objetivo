@@ -47,21 +47,40 @@ int main(int argc, char **argv) {
   //Llamar a un Movimiento
   Movimiento *mov = new Movimiento();
 
+  //Creo una nueva solucion, la cual será la actual que compararé con la nueva. 
+  Solution *s_respaldo = new Solution(pi);
+
+  //Vamos a copiar la información de la solución actual 
+  s_respaldo->copiarSolucion(slt);
+
   //Hace muchos movimientos (los cuales los puse en el Makefile)
   for (int i= 0; i < atoi(argv[3]); i++){
-    
+
+    //Hago los movimientos hasta que el prmero sea un mov. factible
     while (mov->modificarSolucion(slt) == false){
       mov->modificarSolucion(slt);
-      }
+    }
 
-    cout << "Modificacion " << i+1 << endl;
+    //Si la solucion nueva obtenida es peor:
+    if ( slt->evaluarSolucion() <= s_respaldo->evaluarSolucion() ){
+      slt->copiarSolucion(s_respaldo);
+    }
+    else {
 
-    c->imprimirSolucion(slt);
+      //Imprimo la modificación
+      //cout << "Modificacion (mejora) " << i+1 << endl;
+      //slt->imprimeResultado();
+      //cout << endl;
 
-    cout << endl;
+      cout << i+1 << "\t" << slt->evaluarSolucion() << endl;
+
+      //Se vuelve a copiar  
+      s_respaldo->copiarSolucion(slt);
+
+    }
+
   }
-  
-  
 
+  
   return 0;
 }

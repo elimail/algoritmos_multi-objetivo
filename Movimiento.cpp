@@ -24,7 +24,7 @@ bool Movimiento::modificarSolucion(Solution *sol){
 
   //Verificamos si la solución es factible o no:
   if ( peso_nuevo <= sol->getpi()->getCapacidad() ){
-    cout << "Modificación factible" <<endl;
+    //cout << "Modificación factible" <<endl;
     
     //Aquí se actualiza el peso con el peso nuevo 
     sol->setpesoTotal(peso_nuevo);
@@ -43,7 +43,7 @@ bool Movimiento::modificarSolucion(Solution *sol){
     return true;
   }
   else {
-    cout << "Modificación infactible" <<endl;
+    //cout << "Modificación infactible" <<endl;
     //Vuelve al valor original
     sol->modificarObj(indice, 1-sol->getrepS(indice));
 

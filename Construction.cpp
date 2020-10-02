@@ -25,11 +25,11 @@ bool Construction::ConstruirSolucionFact(Solution *sol){
 
   //Compruebo si la solución es factible o no, viendo si sobrepasa la capacidad de la mochila. Retorna verdadero si es solución factible y false cuando no lo es.
   if (sol->getpesoTotal() <= sol->getpi()->getCapacidad() ){
-    cout << "Solución Factible" << endl;
+    //cout << "Solución Factible" << endl;
     return true;
     
   } else {
-    cout << "Solución Infactible" << endl;  
+    //cout << "Solución Infactible" << endl;  
     return false;
   }
 }
