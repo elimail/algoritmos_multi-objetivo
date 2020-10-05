@@ -120,3 +120,18 @@ int Solution::evaluarSolucion(){
   return this->getfo(0);
 
 }
+
+
+void Solution::resetearSolucion(){
+  //Modifico el valor de la fo y los objetos en 0, y el peso total lo dejo en 0.
+  
+  for (int i = 0; i < this->fo.size(); i++ ){
+    this->modificarfo(i, 0);
+  }
+
+  for (int i = 0; i < this->repS.size(); i++ ){
+    this->modificarObj(i, 0);
+  }
+
+  this->setpesoTotal(0);
+}
