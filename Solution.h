@@ -63,5 +63,10 @@ class Solution{
    //Para imprimir resultados!
     void imprimeResultado(void);
 
+    //Método para copiar una clase 
+    void copiarSolucion(Solution *slt);
+
+    //Método para evaluar la función de evaluación
+    int evaluarSolucion();
 
 };
