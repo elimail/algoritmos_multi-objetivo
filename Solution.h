@@ -69,4 +69,7 @@ class Solution{
     //Método para evaluar la función de evaluación
     int evaluarSolucion();
 
+    //Método para resetear una solucion
+    void resetearSolucion();
+
 };
