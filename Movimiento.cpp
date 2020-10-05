@@ -5,6 +5,8 @@ bool Movimiento::modificarSolucion(Solution *sol){
 
   int indice = sol->generarSemilla(0, sol->getrepSsize()-1);
 
+  //cout << "Indice: " << indice << endl;
+  
   sol->modificarObj(indice, 1-sol->getrepS(indice));
 
   //Verificamos si excede la capacidad de la mochila
