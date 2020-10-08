@@ -15,14 +15,17 @@ MOPK: $(OBJS)
 	g++ -c $(FLAGS) $< -o $@
 
 #Para que me lea el archivo de las instancias 
+
+# nombreAlgoritmo nombreArchivo semilla itExt itInt
+
 exe:
-	./MOPK Instancias/KP_p-3_n-50_ins-1.txt 4 100 10 3
+	./MOPK Instancias/KP_p-3_n-50_ins-1.txt 4 10000 1000
 
 exe4:
-	./MOPK Instancias/KP_p-4_n-10_ins-1.txt 10 50 100 5
+	./MOPK Instancias/KP_p-4_n-10_ins-1.txt 10 50 100
 
 exe5:
-	./MOPK Instancias/KP_p-5_n-10_ins-1.txt 2 20 1000 50
+	./MOPK Instancias/KP_p-5_n-10_ins-1.txt 2 100 1000
 
 clean: 
 	rm -rf *.o MOPK
