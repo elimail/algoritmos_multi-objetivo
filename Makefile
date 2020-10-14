@@ -1,5 +1,5 @@
 #Aquí se agregan los objetos para compilar
-OBJS = main.o Object.o ProblemInstance.o FileHandler.o Solution.o Construction.o Movimiento.o
+OBJS = main.o Object.o ProblemInstance.o FileHandler.o Solution.o Construction.o Movimiento.o FrentePareto.o
 #Para poner opciones de la versión de C++ a ocupar 
 FLAGS = -O3
 

@@ -8,7 +8,7 @@
 #include "Solution.h"
 #include "Construction.h"
 #include "Movimiento.h"
-
+#include "FrentePareto.h"
 
 using namespace std;
 
@@ -64,6 +64,9 @@ int main(int argc, char **argv) {
       sc->resetearSolucion(); 
     } while (c->ConstruirSolucionFact(sc) == false);
 
+  //Se crea el frente de pareto:
+  FrentePareto *fp = new FrentePareto();
+
   //Repetir hasta el criterio de término
   for(int it = 0; it < itExt; it++){
     //Repetir hasta el criterio de halting (recalentamiento)
@@ -92,6 +95,14 @@ int main(int argc, char **argv) {
         cout << "Mejor solución:" << sbest->evaluarSolucion() << endl;
       }
     }
+
+    //Se van agregando elementos al frente 
+    fp->ModificarFrente(sc);
+    fp->imprimirFrente();
+    //getchar();
+
+    //Falta la parte de las funciones de escalarización
+    //Definir vectores de peso
 
     //Actualizar Temperatura:
     T = 0.9*T;
