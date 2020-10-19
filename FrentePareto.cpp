@@ -1,4 +1,5 @@
 #include "FrentePareto.h"
+#include <fstream>
 
 int FrentePareto::Dominancia(Solution* sol1, Solution* sol2){
 
@@ -92,3 +93,23 @@ void FrentePareto::imprimirFrente(){
     aux++;
   }
 }
+
+
+void FrentePareto::imprimirFrenteaArchivo(string nombre){
+
+  ofstream archivo(nombre, ios::out);
+
+  int aux = 0;  //Contaodr auxiliar
+
+  for (Solution* i: this->Soluciones){
+    for (int j = 0; j < i->getpi()->getCantFO(); j++){
+      archivo << "\t" << i->getfo(j);
+    } 
+    archivo << endl;
+    aux++;
+  }
+
+}
+
+
+

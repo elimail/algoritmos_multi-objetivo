@@ -53,9 +53,10 @@ int main(int argc, char **argv) {
   Solution *sbest = new Solution(pi); //ese es sbest
 
   //inicializo iteracion
-  float T = 100000;         //Temperatura en valor alto
-  int itExt = atoi(argv[3]);    //Cant. max. iteraciones
-  int itInt = atoi(argv[4]);   //Cant. max iteraciones
+  float T = 100000;                           //Temperatura en valor alto
+  int itExt = atoi(argv[3]);                  //Cant. max. iteraciones
+  int itInt = atoi(argv[4]);                  //Cant. max iteraciones
+  vector <float> Lambda(pi->getCantFO());     //Declaro el vector lambda
 
   //Se construye una solución inicial fuera del ciclo 
   //Creo una solucion factible inicial. Si no es factible, se resetea la función
@@ -69,6 +70,11 @@ int main(int argc, char **argv) {
 
   //Repetir hasta el criterio de término
   for(int it = 0; it < itExt; it++){
+
+    //Genero los numeros de lambda de manera aleatoria
+    sc->generarLambda(Lambda);     
+    //cout << endl;             
+
     //Repetir hasta el criterio de halting (recalentamiento)
     for(int t= 0; t < itInt; t++){
 
@@ -81,28 +87,15 @@ int main(int argc, char **argv) {
       }
       
       //Reemplazo el valor si es mejor segun lo siguiente:
-      if (sn->evaluarSolucion() >= sc->evaluarSolucion()){
+      if (sc->generarSemilla(0, 10)/10.0 < sc->probabilidadSolucionC(sn,T,Lambda) ){
         sc->copiarSolucion(sn);
-      }
-      else if (sc->generarSemilla(0, 10)/10.0 < exp((sn->evaluarSolucion() - sc->evaluarSolucion() )/ T ) ){
-        sc->copiarSolucion(sn);
-      }
 
-      //Actualizo el mejor valor de la solución 
-      if (sc->evaluarSolucion() > sbest->evaluarSolucion()){
-        sbest->copiarSolucion(sc);
-        cout << "Imprimir it:" << it << endl;
-        cout << "Mejor solución:" << sbest->evaluarSolucion() << endl;
+        //Se van agregando elementos al frente 
+        fp->ModificarFrente(sc);
       }
     }
 
-    //Se van agregando elementos al frente 
-    fp->ModificarFrente(sc);
-    fp->imprimirFrente();
-    //getchar();
-
-    //Falta la parte de las funciones de escalarización
-    //Definir vectores de peso
+    //fp->imprimirFrente();
 
     //Actualizar Temperatura:
     T = 0.9*T;
@@ -117,6 +110,8 @@ int main(int argc, char **argv) {
   clock_t timeToBest = ((double) (t_final - t_inicial)) / CLOCKS_PER_SEC;
 
   cout << "Tiempo de ejecución:" << timeToBest << endl;
+
+  fp->imprimirFrenteaArchivo("Solucion2.txt");
 
   return 0;
 }

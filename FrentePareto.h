@@ -23,4 +23,8 @@ class FrentePareto{
 
     //Función para imprimir frente
     void imprimirFrente();
+
+    //Para imprimir un archivo 
+    void imprimirFrenteaArchivo(string nombre);
+
 };

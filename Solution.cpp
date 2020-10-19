@@ -1,4 +1,6 @@
 #include "Solution.h"
+#include <limits.h>
+#include <math.h>
 
 //Métodos de seteo
 void Solution::setfo(int fo){
@@ -135,3 +137,48 @@ void Solution::resetearSolucion(){
 
   this->setpesoTotal(0);
 }
+
+
+//Método para evaluar la función de evaluación para SA MultiObjetivo
+float Solution::probabilidadSolucionC(Solution *slt, int T, vector <float> Lambda){
+
+  int max = INT_MIN;
+
+  for (int i = 0; i < this->getpi()->getCantFO(); i++){
+    float calculo = Lambda.at(i)*(slt->getfo(i) - this->getfo(i))/ T;
+    if (calculo > max){
+      max = calculo;
+    }
+  }
+
+  max = exp(max);
+
+  if (max < 1){
+    return max;
+  } else {
+    return 1;
+  }
+
+}
+
+
+void Solution::generarLambda(vector <float> Lambda){
+
+  vector <float> numeros;
+  float aux = 0;      //Me guarda la suma de los numeros 
+
+  for (int i = 0; i < this->getpi()->getCantFO(); i++){
+    //Genero un número aleatorio entre 0 y 10 y lo entrego al vector
+    numeros.push_back(this->generarSemilla(0, 10));
+    aux = aux + numeros.at(i);
+  }
+
+  //Le voy modificando el valor a lambda
+  for (int i = 0; i < this->getpi()->getCantFO(); i++){
+    Lambda.at(i) = numeros.at(i)/aux;
+    //cout << Lambda.at(i) << "\t";
+  }
+  //cout << endl;
+}
+
+

@@ -69,7 +69,13 @@ class Solution{
     //Método para evaluar la función de evaluación
     int evaluarSolucion();
 
+    //Método para evaluar la función de evaluación para SA MultiObjetivo
+    float probabilidadSolucionC(Solution *slt, int T, vector <float> Lambda);
+
     //Método para resetear una solucion
     void resetearSolucion();
+
+    //Función para generar valores para lambda
+    void generarLambda(vector <float> Lambda);
 
 };
