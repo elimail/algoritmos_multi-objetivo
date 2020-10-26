@@ -19,7 +19,7 @@ MOPK: $(OBJS)
 # nombreAlgoritmo nombreArchivo semilla itExt itInt
 
 exe:
-	./MOPK Instancias/KP_p-3_n-50_ins-1.txt 4 9000 1000
+	./MOPK Instancias/KP_p-3_n-50_ins-1.txt 4 10000 10000
 
 exe4:
 	./MOPK Instancias/KP_p-4_n-10_ins-1.txt 10 500 500

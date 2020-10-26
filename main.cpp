@@ -111,7 +111,7 @@ int main(int argc, char **argv) {
 
   cout << "Tiempo de ejecución:" << timeToBest << endl;
 
-  fp->imprimirFrenteaArchivo("Solucion2.txt");
+  fp->imprimirFrenteaArchivo("Solucion.txt");
 
   return 0;
 }

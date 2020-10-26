@@ -103,11 +103,13 @@ void FrentePareto::imprimirFrenteaArchivo(string nombre){
 
   for (Solution* i: this->Soluciones){
     for (int j = 0; j < i->getpi()->getCantFO(); j++){
-      archivo << "\t" << i->getfo(j);
+      archivo << i->getfo(j) << " ";
     } 
     archivo << endl;
     aux++;
   }
+  
+  archivo.close();
 
 }
 
